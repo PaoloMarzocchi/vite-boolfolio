@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
+import AppCard from './components/AppCard.vue';
 
 export default {
 	name: 'App',
+	components: {
+		AppCard
+	},
 	data() {
 		return {
 			projects: [],
@@ -43,31 +47,8 @@ export default {
 				<div class="row">
 					<div class="col" v-for="project in projects.data">
 
-						<div class="card">
-							<div class="card-img">
+						<AppCard :project="project" :baseUrl="base_api_url"></AppCard>
 
-								<template v-if="project.preview">
-
-									<template v-if="project.preview.startsWith('previews')">
-										<img :src="base_api_url + '/storage/' + project.preview" alt="">
-									</template>
-									<template v-else>
-										<img :src="project.preview" alt="">
-									</template>
-
-								</template>
-
-								<template v-else>
-									<img
-										src="https://www.halmanera.it/wp-content/themes/vio/assets/images/no-image/No-Image-Found-400x264.png"
-										alt="">
-								</template>
-
-							</div>
-							<div class="card-title">
-								{{ project.title }}
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
