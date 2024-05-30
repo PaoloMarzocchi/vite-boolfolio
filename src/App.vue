@@ -58,10 +58,10 @@ export default {
 				</div>
 				<nav class="pagination" aria-label="Page navigation">
 					<ul>
-						<li class="page-item" v-show='projects.prev_page_url' @click="callAPI(projects.prev_page_url)">
-							<a class="page-link" href="#" aria-label="Previous">
+						<li class="page-item arrow" v-show="projects.prev_page_url" @click="callAPI(projects.prev_page_url)">
+							<a class="page-link " href="#" aria-label="Previous">
 								<span aria-hidden="true">
-									<i class="fa-regular fa-circle-left" style="color: #ffffff;"></i>
+									<i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
 								</span>
 							</a>
 						</li>
@@ -71,10 +71,10 @@ export default {
 							<a class="page-link" href="#">{{ page }}</a>
 						</li>
 
-						<li class="page-item" v-show='projects.next_page_url' @click="callAPI(projects.next_page_url)">
+						<li class="page-item arrow" v-show="projects.next_page_url" @click="callAPI(projects.next_page_url)">
 							<a class="page-link" href="#" aria-label="Next">
 								<span aria-hidden="true">
-									<i class="fa-regular fa-circle-right" style="color: #ffffff;"></i>
+									<i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>
 								</span>
 							</a>
 						</li>

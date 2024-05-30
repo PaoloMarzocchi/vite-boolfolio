@@ -40,22 +40,46 @@ img {
 
 /*#endregion*/
 
-/*#region Layout */
+/*#region Pagination */
 
 .pagination {
     padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & ul {
         display: flex;
+        gap: 0.5rem;
         list-style: none;
+
+        .active {
+            background-color: #ad3737;
+        }
 
         .page-item {
             padding: 0.5rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.arrow {
+                border: 1px solid #ad3737;
+                background-color: rgba(255, 255, 255, 0);
+            }
 
             .page-link {
                 text-decoration: none;
-                padding: 0.5rem;
                 color: inherit;
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                text-align: center;
+
+
             }
         }
     }
