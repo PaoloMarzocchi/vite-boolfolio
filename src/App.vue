@@ -1,11 +1,11 @@
 <script>
 import axios from 'axios';
-import AppCard from './components/AppCard.vue';
+import ProjectCard from './components/ProjectCard.vue';
 
 export default {
 	name: 'App',
 	components: {
-		AppCard
+		ProjectCard
 	},
 	data() {
 		return {
@@ -47,7 +47,7 @@ export default {
 				<div class="row">
 					<div class="col" v-for="project in projects.data">
 
-						<AppCard :project="project" :baseUrl="base_api_url"></AppCard>
+						<ProjectCard :project="project" :baseUrl="base_api_url"></ProjectCard>
 
 					</div>
 				</div>
