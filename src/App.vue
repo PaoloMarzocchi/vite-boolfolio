@@ -15,6 +15,11 @@ export default {
 		}
 	},
 	methods: {
+		selectedPage(page) {
+			const url = this.base_api_url + this.base_projects_url + `?page=${page}`;
+
+			this.callAPI(url);
+		},
 		callAPI(url) {
 			axios.get(url)
 				.then(response => {
@@ -51,6 +56,31 @@ export default {
 
 					</div>
 				</div>
+				<nav class="pagination" aria-label="Page navigation">
+					<ul>
+						<li class="page-item" v-show='projects.prev_page_url' @click="callAPI(projects.prev_page_url)">
+							<a class="page-link" href="#" aria-label="Previous">
+								<span aria-hidden="true">
+									<i class="fa-regular fa-circle-left" style="color: #ffffff;"></i>
+								</span>
+							</a>
+						</li>
+
+						<li class="page-item" :class="{ 'active': page == projects.current_page }"
+							v-for="page in projects.last_page" @click='selectedPage(page)'>
+							<a class="page-link" href="#">{{ page }}</a>
+						</li>
+
+						<li class="page-item" v-show='projects.next_page_url' @click="callAPI(projects.next_page_url)">
+							<a class="page-link" href="#" aria-label="Next">
+								<span aria-hidden="true">
+									<i class="fa-regular fa-circle-right" style="color: #ffffff;"></i>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+
 			</div>
 		</section>
 	</main>

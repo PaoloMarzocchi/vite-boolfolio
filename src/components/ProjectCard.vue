@@ -34,4 +34,17 @@ export default {
 	</div>
 
 </template>
-<style></style>
+<style>
+.card {
+	height: 100%;
+	padding: 0.5rem;
+	background-color: #ffffff25;
+	border: 1px solid #ad3737;
+	border-radius: 10px;
+
+	& img {
+		aspect-ratio: 16/9;
+		object-fit: cover;
+	}
+}
+</style>
