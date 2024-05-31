@@ -41,12 +41,18 @@ export default {
 <template>
 
 	<header>
-		Header
+
+		<router-link :to="{ name: 'home' }">Home</router-link>
+		<router-link :to="{ name: 'projects' }">Projects</router-link>
+		<router-link :to="{ name: 'about' }">About</router-link>
+		<router-link :to="{ name: 'contacts' }">Contacts</router-link>
+
 	</header>
 
 
 	<main>
-		<section class="projects">
+		<RouterView></RouterView>
+		<!-- <section class="projects">
 
 			<div class="container">
 				<div class="row">
@@ -82,7 +88,7 @@ export default {
 				</nav>
 
 			</div>
-		</section>
+		</section> -->
 	</main>
 
 
