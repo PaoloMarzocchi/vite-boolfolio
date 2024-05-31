@@ -1,0 +1,108 @@
+<script>
+export default {
+    name: 'AppHeader',
+    data() {
+        return {
+            menuEl: [
+                {
+                    txt: 'Home',
+                    routeName: 'home'
+                },
+                {
+                    txt: 'Projects',
+                    routeName: 'projects'
+                },
+                {
+                    txt: 'About',
+                    routeName: 'about'
+                },
+                {
+                    txt: 'Contacts',
+                    routeName: 'contacts'
+                },
+            ]
+        }
+    }
+}
+</script>
+
+
+
+<template>
+    <header>
+
+        <nav class="menu">
+            <div class="container d-flex">
+                <div class="logo">
+                    <img src="/public/img/logo-pm.png" alt="">
+                </div>
+                <ul class="items d-flex">
+                    <li :class="$route.name == element.routeName ? 'active' : ''" v-for="element in menuEl">
+                        <router-link :to="{ name: element.routeName }">{{ element.txt }}</router-link>
+                    </li>
+                </ul>
+
+                <!--  <router-link :to="{ name: 'projects' }">Projects</router-link>
+            <router-link :to="{ name: 'about' }">About</router-link>
+            <router-link :to="{ name: 'contacts' }">Contacts</router-link> -->
+            </div>
+
+        </nav>
+    </header>
+</template>
+
+
+<style>
+header {
+
+    .menu {
+        padding: 0.5rem 0;
+        background-color: var(--light);
+        color: var(--lightest);
+        font-weight: 400;
+        box-shadow: inset 0px -1px 1px 0px var(--primary);
+
+
+
+        .container {
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        .logo {
+            width: 20%;
+
+            & img {
+                vertical-align: middle;
+            }
+
+        }
+
+        .items {
+            list-style: none;
+            gap: 0.5rem;
+
+
+            & li {
+
+                padding: 0.5rem;
+
+                & a {
+                    text-decoration: none;
+                    color: inherit;
+
+                }
+            }
+
+
+            .active {
+                box-shadow: 0px 8px 5px 0px var(--primary);
+                transition: all 0.5s ease-in-out;
+            }
+        }
+
+    }
+}
+</style>

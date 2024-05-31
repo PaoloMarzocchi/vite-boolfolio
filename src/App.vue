@@ -1,21 +1,18 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
 
 export default {
 	name: 'App',
+	components: {
+		AppHeader
+	}
 
 }
 </script>
 
 <template>
 
-	<header>
-
-		<router-link :to="{ name: 'home' }">Home</router-link>
-		<router-link :to="{ name: 'projects' }">Projects</router-link>
-		<router-link :to="{ name: 'about' }">About</router-link>
-		<router-link :to="{ name: 'contacts' }">Contacts</router-link>
-
-	</header>
+	<AppHeader></AppHeader>
 
 
 	<main>
