@@ -97,27 +97,35 @@ export default {
 
 
 <style>
-.loading.row {
-    height: 100vh;
-    gap: 0.5rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--lightest);
+.projects {
+    .col {
+        width: calc(100%/12*4);
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    }
 
-    .loading-stick {
+    .loading.row {
+        height: 100vh;
+        gap: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        height: 1rem;
-        width: 50%;
-        border: 5px solid var(--lightest);
-        border-radius: 10px;
+        color: var(--lightest);
 
-        .loading-bar {
-            background-color: var(--primary);
-            width: 0px;
-            height: 0.5rem;
+        .loading-stick {
+            align-items: center;
+            height: 1rem;
+            width: 50%;
+            border: 5px solid var(--lightest);
             border-radius: 10px;
-            animation: loading 4s infinite linear;
+
+            .loading-bar {
+                background-color: var(--primary);
+                width: 0px;
+                height: 0.5rem;
+                border-radius: 10px;
+                animation: loading 4s infinite linear;
+            }
         }
     }
 }

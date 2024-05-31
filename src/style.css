@@ -40,6 +40,10 @@ img {
     padding: 2.5rem 0;
 }
 
+.my-1 {
+    padding: 0.5rem 0;
+}
+
 .p-5 {
     padding: 2.5rem;
 }
@@ -71,11 +75,7 @@ img {
         flex-wrap: wrap;
         margin: 0 -1rem;
 
-        .col {
-            width: calc(100%/12*4);
-            padding: 0 1rem;
-            margin-bottom: 1rem;
-        }
+
     }
 }
 

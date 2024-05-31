@@ -57,8 +57,8 @@ export default {
                 padding: 0 2rem;
                 margin-left: -2rem;
                 font-size: 3rem;
-                border-bottom: 1px solid var(--primary);
-                border-radius: 25%;
+                border-bottom: 4px solid var(--primary);
+                border-radius: 20%;
             }
 
             .intro {

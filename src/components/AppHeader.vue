@@ -41,10 +41,6 @@ export default {
                         <router-link :to="{ name: element.routeName }">{{ element.txt }}</router-link>
                     </li>
                 </ul>
-
-                <!--  <router-link :to="{ name: 'projects' }">Projects</router-link>
-            <router-link :to="{ name: 'about' }">About</router-link>
-            <router-link :to="{ name: 'contacts' }">Contacts</router-link> -->
             </div>
 
         </nav>
@@ -56,7 +52,7 @@ export default {
 header {
 
     .menu {
-        padding: 0.5rem 0;
+        padding: 0.8rem 0;
         background-color: var(--light);
         color: var(--lightest);
         font-weight: 400;
@@ -99,6 +95,7 @@ header {
 
             .active {
                 box-shadow: 0px 8px 5px 0px var(--primary);
+                border-radius: 5px;
                 transition: all 0.5s ease-in-out;
             }
         }
