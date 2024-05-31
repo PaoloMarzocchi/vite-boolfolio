@@ -57,7 +57,7 @@ export default {
                 padding: 0 2rem;
                 margin-left: -2rem;
                 font-size: 3rem;
-                border-bottom: 1px solid #ad3737;
+                border-bottom: 1px solid var(--primary);
                 border-radius: 25%;
             }
 
@@ -66,7 +66,7 @@ export default {
             }
 
             .sub-intro {
-                color: rgb(167, 165, 165);
+                color: var(--light);
             }
         }
     }

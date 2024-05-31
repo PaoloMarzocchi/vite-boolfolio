@@ -1,3 +1,20 @@
+/*#region Color Palette */
+
+:root {
+    --primary: #ad3737;
+    --bg-site: rgb(44, 44, 44);
+    --dark: #545252;
+    --dark-transp: #ffffff25;
+    --darkest: black;
+    --success: #0a5e1f;
+    --lightest: white;
+    --light: rgb(167, 165, 165);
+
+}
+
+/*#endregion*/
+
+
 /*#region Common */
 * {
     padding: 0;
@@ -7,8 +24,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: rgb(44, 44, 44);
-    color: white;
+    background-color: var(--bg-site);
+    color: var(--lightest);
 }
 
 img {
@@ -35,7 +52,7 @@ img {
     text-decoration: none;
     color: inherit;
     padding: 1rem 2rem;
-    background-color: #ad3737;
+    background-color: var(--primary);
     border-radius: 15px;
 }
 
@@ -78,7 +95,7 @@ img {
         list-style: none;
 
         .active {
-            background-color: #ad3737;
+            background-color: var(--primary);
         }
 
         .page-item {
@@ -91,7 +108,7 @@ img {
             align-items: center;
 
             &.arrow {
-                border: 1px solid #ad3737;
+                border: 1px solid var(--primary);
             }
 
             .page-link {

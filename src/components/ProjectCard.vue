@@ -38,8 +38,8 @@ export default {
 .card {
 	height: 100%;
 	padding: 0.5rem;
-	background-color: #ffffff25;
-	border: 1px solid #ad3737;
+	background-color: var(--dark-transp);
+	border: 1px solid var(--primary);
 	border-radius: 10px;
 
 	& img {
