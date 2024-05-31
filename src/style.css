@@ -18,6 +18,30 @@ img {
 
 /*#endregion*/
 
+/*#region Utilities */
+.py-5 {
+    padding: 2.5rem 0;
+}
+
+.p-5 {
+    padding: 2.5rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.btn-lg {
+    text-decoration: none;
+    color: inherit;
+    padding: 1rem 2rem;
+    background-color: #ad3737;
+    border-radius: 15px;
+}
+
+/*#endregion*/
+
+
 /*#region Layout */
 
 .container {
