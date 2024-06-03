@@ -68,11 +68,11 @@ export default {
                         </li>
                         <li>
                             <strong>Project link: </strong><br>
-                            <a href="{{ project.repo_link }}">Go to project</a>
+                            <a :href="project.project_url">Go to project</a>
                         </li>
                         <li>
                             <strong>Repository link: </strong><br>
-                            <a href="{{ project.repo_link }}">Check project code</a>
+                            <a :href="project.repo_url">Check project code</a>
                         </li>
                         <li>
                             <strong>Start Date: </strong><br>
