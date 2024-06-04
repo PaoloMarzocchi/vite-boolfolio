@@ -1,0 +1,16 @@
+<script>
+export default {
+    name: 'NotFound',
+    data() {
+        return {}
+    }
+}
+</script>
+
+<template>
+    <h1>Not found</h1>
+</template>
+
+
+
+<style></style>

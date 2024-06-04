@@ -18,7 +18,11 @@ export default {
                 .get(url)
                 .then(response => {
                     console.log(response);
-                    this.project = response.data.response;
+                    if (response.data.success) {
+                        this.project = response.data.response;
+                    } else {
+                        this.$router.push({ name: 'not-found' });
+                    }
                 }).catch(err => {
                     console.error(err);
                 })
