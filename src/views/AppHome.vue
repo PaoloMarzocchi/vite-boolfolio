@@ -14,7 +14,7 @@ export default {
         <div class="jumbotron p-5 pb-4 rounded-3">
             <div class="container py-5 d-flex flex-column gap-2">
                 <div class="my_logo">
-                    <img width="400" class="img-fluid" src="/public/img/logo-pm.png" alt="my logo">
+                    <img width="400" class="img-fluid" src="/img/logo-pm.png" alt="my logo">
                 </div>
                 <h1>
                     Welcome to My Portfolio

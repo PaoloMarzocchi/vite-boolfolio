@@ -34,7 +34,7 @@ export default {
         <nav class="menu">
             <div class="container d-flex">
                 <div class="logo">
-                    <img src="/public/img/logo-pm.png" alt="">
+                    <img src="/img/logo-pm.png" alt="">
                 </div>
                 <ul class="items d-flex">
                     <li :class="$route.name == element.routeName ? 'active' : ''" v-for="element in menuEl">
