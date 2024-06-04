@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import { state } from '../state.js'
 
 export default {
     name: 'AppProjects',
@@ -9,15 +10,14 @@ export default {
     },
     data() {
         return {
-            loading: true,
             projects: [],
-            base_api_url: 'http://127.0.0.1:8000',
-            base_projects_url: '/api/projects',
+            state,
+            loading: true,
         }
     },
     methods: {
         selectedPage(page) {
-            const url = this.base_api_url + this.base_projects_url + `?page=${page}`;
+            const url = state.base_api_url + state.base_projects_url + `?page=${page}`;
 
             this.callAPI(url);
         },
@@ -35,7 +35,7 @@ export default {
         }
     },
     mounted() {
-        const url = this.base_api_url + this.base_projects_url;
+        const url = state.base_api_url + state.base_projects_url;
         this.callAPI(url);
     }
 }
@@ -49,7 +49,7 @@ export default {
                 <div class="row">
                     <div class="col" v-for="project in projects.data">
 
-                        <ProjectCard :project="project" :baseUrl="base_api_url"></ProjectCard>
+                        <ProjectCard :project="project"></ProjectCard>
 
                     </div>
                 </div>

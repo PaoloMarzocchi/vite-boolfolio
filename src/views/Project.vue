@@ -1,12 +1,12 @@
 <script>
 import axios from 'axios';
+import { state } from '../state.js';
 
 export default {
     name: 'Project',
     data() {
         return {
-            base_api_url: 'http://127.0.0.1:8000',
-            base_projects_url: '/api/projects/',
+            state,
             project: {},
         }
     },
@@ -29,7 +29,7 @@ export default {
         }
     },
     mounted() {
-        const url = this.base_api_url + this.base_projects_url + this.$route.params.slug;
+        const url = state.base_api_url + state.base_projects_url + `/${this.$route.params.slug}`;
         this.callAPI(url);
     }
 }
@@ -46,7 +46,7 @@ export default {
                     <template v-if="project.preview">
 
                         <template v-if="project.preview.startsWith('previews')">
-                            <img :src="base_api_url + '/storage/' + project.preview" :alt="project.title">
+                            <img :src="state.base_api_url + '/storage/' + project.preview" :alt="project.title">
                         </template>
                         <template v-else>
                             <img :src="project.preview" :alt="project.title">

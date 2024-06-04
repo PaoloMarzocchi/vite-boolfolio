@@ -1,9 +1,15 @@
 <script>
+import { state } from '../state.js';
+
 export default {
 	name: 'ProjectCard',
 	props: {
 		project: Object,
-		baseUrl: String
+	},
+	data() {
+		return {
+			state
+		}
 	}
 }
 </script>
@@ -15,7 +21,7 @@ export default {
 				<template v-if="project.preview">
 
 					<template v-if="project.preview.startsWith('previews')">
-						<img :src="baseUrl + '/storage/' + project.preview" :alt="project.title">
+						<img :src="state.base_api_url + '/storage/' + project.preview" :alt="project.title">
 					</template>
 					<template v-else>
 						<img :src="project.preview" :alt="project.title">
