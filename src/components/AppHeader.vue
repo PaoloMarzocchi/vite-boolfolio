@@ -53,8 +53,6 @@ header {
 
     .menu {
         padding: 0.8rem 0;
-        background-color: var(--light);
-        color: var(--lightest);
         font-weight: 400;
         box-shadow: inset 0px -1px 1px 0px var(--primary);
 
@@ -84,19 +82,23 @@ header {
             & li {
 
                 padding: 0.5rem;
+                color: var(--lightest);
 
                 & a {
                     text-decoration: none;
                     color: inherit;
+
 
                 }
             }
 
 
             .active {
-                box-shadow: 0px 8px 5px 0px var(--primary);
+                box-shadow: 0px 1px 0px 2px var(--primary);
                 border-radius: 5px;
                 transition: all 0.5s ease-in-out;
+                font-weight: 600;
+                color: var(--primary);
             }
         }
 

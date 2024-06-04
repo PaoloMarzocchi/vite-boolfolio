@@ -63,10 +63,11 @@ export default {
 
 <style>
 footer {
-    background-color: var(--light);
+
     padding: 1rem 0;
-    box-shadow: inset 0px 3px 2px 0px var(--primary);
-    ;
+    box-shadow: inset 0px 1px 1px 0px var(--primary);
+    color: var(--lightest);
+
 
     .row {
         justify-content: space-between;
@@ -87,6 +88,7 @@ footer {
                 & p {
                     margin-top: 0.2rem;
                     font-size: 0.8rem;
+                    color: var(--light);
                 }
             }
 
@@ -106,9 +108,11 @@ footer {
                 }
 
                 & li:hover {
-                    box-shadow: 0px 8px 5px 0px var(--primary);
+                    box-shadow: 0px 2px 0px 0px var(--primary);
                     border-radius: 5px;
-                    transition: all 0.3s ease-in-out;
+                    transition: all 0.2s ease-in-out;
+                    font-weight: 600;
+                    color: var(--primary);
                 }
             }
 

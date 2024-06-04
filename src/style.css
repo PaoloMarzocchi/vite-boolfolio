@@ -2,13 +2,15 @@
 
 :root {
     --primary: #ad3737;
-    --bg-site: rgb(44, 44, 44);
+    --bg-site:
+        rgb(44, 44, 44);
     --dark: #545252;
     --dark-transp: #ffffff25;
     --darkest: black;
     --success: #0a5e1f;
-    --lightest: white;
-    --light: rgb(167, 165, 165);
+    --dark-red: #610000;
+    --lightest: #ffffff;
+    --light: rgb(206, 206, 206);
 
 }
 
@@ -25,7 +27,6 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: var(--bg-site);
-    color: var(--lightest);
 }
 
 img {
@@ -53,8 +54,9 @@ img {
 }
 
 .btn-lg {
+    display: block;
     text-decoration: none;
-    color: inherit;
+    color: var(--lightest);
     padding: 1rem 2rem;
     background-color: var(--primary);
     border-radius: 15px;
@@ -93,6 +95,7 @@ img {
         display: flex;
         gap: 0.5rem;
         list-style: none;
+        color: var(--lightest);
 
         .active {
             background-color: var(--primary);
