@@ -54,12 +54,13 @@ export default {
 
 <style>
 .home_section {
-    background-image: url(/public/img/bg-home.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 
     .jumbotron {
+        background-image: url(/public/img/bg-home.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
         .container {
 
             .col {
@@ -72,19 +73,10 @@ export default {
                     padding: 1rem 2rem;
                     margin-left: -2rem;
                     font-size: 3rem;
-
                     background: linear-gradient(0.50turn, transparent, var(--primary)50%, transparent);
-                    /* border: 4px solid var(--primary);*/
-                    /* background: linear-gradient(217deg, transparent, rgba(255, 0, 0, 0) 70.71%),
-                        linear-gradient(127deg, var(--darkest), rgba(0, 255, 0, 0) 70.71%),
-                        linear-gradient(336deg, transparent, rgba(0, 0, 255, 0) 70.71%); */
                     border-radius: 20px;
-                    /* border-top-right-radius: 50%;
-                    border-bottom-right-radius: 50%; */
-
                     color: var(--light);
-                    /*rgb(248, 164, 55); */
-                    /* AD6C37; */
+
                 }
 
                 .intro {
@@ -105,6 +97,12 @@ export default {
             }
 
         }
+    }
+
+    .favourites {
+        height: 20rem;
+        box-shadow: inset 0px 1px 1px 0px var(--primary);
+
     }
 }
 </style>
