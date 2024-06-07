@@ -2,12 +2,14 @@
 
 :root {
     --primary: #ad3737;
+    --light-primary: #a06a6a;
     --bg-site:
         rgb(44, 44, 44);
     --dark: #545252;
     --dark-transp: #ffffff25;
     --darkest: black;
     --success: #0a5e1f;
+    --light-success: #5b9168;
     --dark-red: #610000;
     --lightest: #ffffff;
     --light: rgb(206, 206, 206);
@@ -33,6 +35,9 @@ img {
     max-width: 100%;
 }
 
+ul {
+    list-style: none;
+}
 
 /*#endregion*/
 

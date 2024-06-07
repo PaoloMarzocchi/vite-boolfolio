@@ -1,10 +1,61 @@
 <script>
+import axios from 'axios';
+import { state } from '../state.js';
+
 export default {
     name: 'AppContacts',
     data() {
         return {
+            state,
+            data: {
+                name: '',
+                email: '',
+                message: ''
+            },
+            errors: false,
+            success: false,
+            loading: false,
+            alert_toggle: false
 
         }
+    },
+    methods: {
+        sendForm() {
+            this.loading = true;
+
+            const url = state.base_api_url + '/api/contacts';
+
+            const new_data = {
+                name: this.data.name,
+                email: this.data.email,
+                message: this.data.message
+            }
+
+            this.errors = false;
+            axios
+                .post(url, new_data)
+                .then(response => {
+                    console.log(response.data);
+                    this.success = response.data.success;
+
+                    if (!this.success) {
+                        this.errors = response.data.errors;
+                    } else {
+                        this.data = {
+                            name: '',
+                            email: '',
+                            message: ''
+                        }
+
+                    }
+
+                    this.loading = false;
+                    this.alert_toggle = true;
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        },
     }
 }
 </script>
@@ -18,27 +69,49 @@ export default {
 
             <div class="row">
                 <div class="col">
-                    <form class="d-flex" action="" method="post">
+
+                    <div v-show="alert_toggle">
+                        <div class="alert-sent d-flex" v-if="success">
+                            <span>Messaggio inviato con successo!</span>
+                            <div @click="alert_toggle = !alert_toggle">✖</div>
+                        </div>
+                        <div class="alert-error d-flex" v-else-if="errors">
+                            <ul>
+                                <li v-for="error in errors">{{ error[0] }}</li>
+                            </ul>
+                            <div @click="alert_toggle = !alert_toggle">✖</div>
+                        </div>
+                    </div>
+
+                    <form class="d-flex" @submit.prevent="sendForm()">
 
                         <div class="mb-3 d-flex">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelper"
-                                placeholder="" />
-                            <small id="nameHelper" class="form-text text-muted">Insert your name</small>
-                        </div>
-                        <div class="mb-3 d-flex">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email"
-                                aria-describedby="emailHelper" placeholder="" />
-                            <small id="emailHelper" class="form-text text-muted">Insert your email</small>
-                        </div>
-                        <div class="mb-3 d-flex">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" name="message" id="message" rows="10"
-                                aria-describedby="messageHelper"></textarea>
-                            <small id="messageHelper" class="form-text text-muted">Insert your message</small>
+                            <input type="text" class="form-control" :class="{ 'error': errors.name }" name="name"
+                                id="name" aria-describedby="nameHelper" placeholder="" v-model="data.name" />
+                            <small id="nameHelper" class="form-text" :class="{ 'error-txt': errors.name }">{{
+                        errors.name ? errors.name[0] : "Insert your name" }}</small>
                         </div>
 
+                        <div class="mb-3 d-flex">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" :class="{ 'error': errors.email }" name="email"
+                                id="email" aria-describedby="emailHelper" placeholder="" v-model="data.email" />
+                            <small id="emailHelper" class="form-text" :class="{ 'error-txt': errors.email }">{{
+                        errors.email ? errors.email[0] : "Insert your email" }}</small>
+                        </div>
+
+                        <div class="mb-3 d-flex">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" :class="{ 'error': errors.message }" name="message"
+                                id="message" rows="10" aria-describedby="messageHelper"
+                                v-model="data.message"></textarea>
+                            <small id="messageHelper" class="form-text" :class="{ 'error-txt': errors.message }">{{
+                        errors.message ? errors.message[0] : "Insert your message" }} </small>
+                        </div>
+
+                        <button type="submit" class="btn-lg" :disabled="loading">{{ loading ?
+                            'Sending...':'Send'}}</button>
 
                     </form>
 
@@ -90,9 +163,14 @@ export default {
 
                     }
 
+                    & small.error-txt {
+                        color: var(--primary);
+                    }
+
                     & small {
                         color: var(--light);
                     }
+
 
                 }
             }
@@ -105,12 +183,35 @@ textarea:focus {
     /* border: 2px solid var(--dark-red); */
     border-radius: 10px;
     /* border-bottom: 1px dashed #D9FFA9; */
-    outline: 4px ridge var(--dark-red);
+    outline: 4px double var(--success);
 }
 
-/* ,
-textarea:focus */
-/*    {
-    
-} */
+.error {
+    /* border: 2px solid var(--dark-red); */
+    border-radius: 10px;
+    /* border-bottom: 1px dashed #D9FFA9; */
+    outline: 4px solid var(--primary);
+}
+
+.alert-sent,
+.alert-error {
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    justify-content: space-between;
+
+    & div {
+        cursor: pointer;
+    }
+}
+
+.alert-sent {
+    border: 1px solid var(--success);
+    background-color: var(--light-success);
+}
+
+.alert-error {
+    border: 1px solid var(--dark-red);
+    background-color: var(--light-primary);
+}
 </style>
